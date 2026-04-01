@@ -1,0 +1,14 @@
+[
+  {
+    "block": "mod:light_block",
+    "mass": 50.0
+  },
+  {
+    "block": "mod:normal_block",
+    "mass": 800.0
+  },
+  {
+    "block": "modname:heavy_block",
+    "mass": 2000.0
+  }
+]
