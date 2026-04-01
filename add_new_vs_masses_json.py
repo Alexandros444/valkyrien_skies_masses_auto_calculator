@@ -26,6 +26,24 @@ LLM_MODEL = os.environ.get("LOCALAI_MODEL", "versatillama-llama-3.2-3b-instruct-
 # Also Doors, Ladders, Fences, and similar should be considered as partial blocks with much lower mass.
 # All Bars, Ladders, Fences, and similar should be considered as partial blocks with much lower mass, around 100-200 kg/m³.
 
+def get_defined_masses(block_name: str) -> Optional[float]:
+
+
+    masses_dict = {
+        "bars" : 100,
+        "wedge" : 50,
+        "catwalk" : 100,
+        "stairs" : 100,
+        "ladder" : 100,
+        "letter" : 1,
+    }
+
+    for key in masses_dict:
+        if key in block_name:
+            return masses_dict.get(key)
+    
+    return 1000
+
 
 def get_llm_mass(block_name: str, max_retries: int = 3, debug_print: bool = False) -> Optional[float]:
     """
